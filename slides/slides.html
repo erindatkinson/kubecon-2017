@@ -1,0 +1,328 @@
+<section>
+
+<h1>KubeCon + CloudNativeCon 2017</h1>
+
+</section>
+<section>
+
+<h1>Major Themes</h1>
+<ul>
+  <li>Service Meshes</li>
+  <li>Building Paved Roads</li>
+  <li>War Stories</li>
+  <li>Extensibility</li>
+</ul>
+
+</section>
+<section>
+
+<h1>Anouncements</h1>
+
+</section>
+<section>
+
+<h2>K8S 1.9</h2>
+<ul>
+  <li>DaemonSets, Deployments, ReplicaSets, and StatefulSets all promoted to Beta</li>
+  <li>CoreDNS replacing kube-dns</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Releases</h2>
+<ul>
+  <li>CoreDNS 1.0</li>
+  <li>Containerd 1.0</li>
+  <li>Fluentd 1.0</li>
+  <li>Prometheus 2.0</li>
+  <li>Envoy 1.5.0</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Conduit</h2>
+<ul>
+  <li>Lighter footprint than linkerd</li>
+  <li>Designed for K8s as a sidecar</li>
+  <li>1MB memory foorprint in their demo</li>
+  <li>CLI for live mesh stats</li>
+</ul>
+
+</section>
+<section>
+
+<h2>New fluentbit daemon coming</h2>
+<ul>
+  <li>Smaller footprint</li>
+  <li>Written in C</li>
+  <li>Supports plugins in golang</li>
+</ul>
+
+</section>
+<section>
+
+<h2>Kata Containers</h2>
+<ul>
+  <li>Bridging VMs and containers</li>
+  <li>Hardware acceleration for containers</li>
+  <li>No public code yet</li>
+</ul>
+
+</section>
+<section>
+
+<h2>AWS</h2>
+<ul>
+  <li>NLB support in Alpha</li>
+  <li>C5/M5 support in K8s 1.9</li>
+</ul>
+
+</section>
+<section>
+
+<h2>EKS</h2>
+<ul>
+  <li>IAM auth</li>
+  <li>Kube2IAM</li>
+  <li>Vault/SPFEE integrations</li>
+  <li>Committing to the OpenSource experience</li>
+  <li>Pushing back to upstream</li>
+</ul>
+
+</section>
+<section>
+
+<h1>Take Aways</h1>
+
+</section>
+<section>
+
+<h2>Calico is what a lot of people are gravitating towards</h2>
+<p>We should migrate now before our usage ramps up</p>
+
+</section>
+<section>
+
+<h2>We’re going down the right path!</h2>
+
+<p>Curated Helm charts with a Values file as the deployment contract is a common pattern</p>
+
+<p>Netflix had a shift from “Let me control every knob” to “Give me sane defaults”</p>
+
+</section>
+<section>
+
+<h2>We’re going down the right path!</h2>
+<p><code>kubectl</code> is the new <code>ssh</code> If you’re deploying to production with <code>kubectl</code> you are missing steps<br>
+Doing it right means that kubernetes is hidden to the developers<br>
+-Kelsey Hightower</p>
+
+</section>
+<section>
+
+<h2>We’re going down the right path!</h2>
+<ul>
+  <li>CodeKarma’s Monolith -&gt; Microservices</li>
+  <li>7 year old php monolith</li>
+  <li>Started with small services outside the critical path</li>
+  <li>Used linkerd to bridge the monolith and microservices</li>
+  <li><a href="https://schd.ws/hosted_files/kccncna17/39/Monolith%20to%20Microservices%20-%20Kubecon%202017.pdf">Slides</a></li>
+</ul>
+
+</section>
+<section>
+
+<h2>We should be use OpenTracing</h2>
+<p>Its the Peanut Butter to the Service Meshe’s Chocolate</p>
+
+</section>
+<section>
+
+<h1>Tools</h1>
+
+</section>
+<section>
+
+<p><a href="https://github.com/open-policy-agent/opa">Open Policy Agent</a></p>
+<ul>
+  <li>Netflix tool for authorization</li>
+  <li>Solves Policy for any (I)dentity performing (O)peration on (R)esource</li>
+  <li>Pluggable for I,O,R</li>
+  <li>SLO of &lt;1ms per evaluation</li>
+  <li>20us benchmarked using 2000 roles in 2000 bindings on a single i7 core</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://github.com/GoogleCloudPlatform/kube-metacontroller">kube-metacontroler</a></p>
+<ul>
+  <li>Prototype tool for implementing custom controlers</li>
+  <li>Deployed a new Implementation of StatefulSets using 100 lines of js</li>
+  <li>no Imports/Dependencies</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://fission.io/">fission.io</a></p>
+<ul>
+  <li>Framework for running serverless functions on K8s</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://github.com/kinvolk/kube-spawn">Kubespawn</a></p>
+<ul>
+  <li>Run local multi-node k8s clusters</li>
+  <li>Used by K8S devs for development</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://www.solo.io/single-post/2017/08/22/Technical-introduction-to-Squash">Squash</a></p>
+<ul>
+  <li>Connect a debugger to a live pod via VSCode</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="">kubetest</a></p>
+<ul>
+  <li>Unit-Testing/Linter for K8s objects</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://github.com/kubernetes/code-generator">Kubernetes Code Generators</a><br>
+<a href="https://github.com/rook/operator-kit">Operator-Kit</a></p>
+<ul>
+  <li>For Implementing K8s API types</li>
+  <li>Use CRDs in code</li>
+  <li>Operator Kit is a lib for working with CRDs with sample code</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="www.telepresence.io">telepresence.io</a></p>
+<ul>
+  <li>Proxy for bridging a dev machine into a K8s cluster</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="http://github.com/projectcalico/app-policy">Calico App Policy</a></p>
+<ul>
+  <li>Can Scope Policy by App Selectors</li>
+  <li>Demoed protection with both a leaked mTLS key and compromised pod</li>
+</ul>
+
+</section>
+<section>
+
+<p><a href="https://github.com/coreos/clair">CoreOS Clair</a></p>
+<ul>
+  <li>Image static analysis and vulnerability scanner</li>
+</ul>
+
+</section>
+<section>
+
+<h1>Good Links and Presentations</h1>
+
+</section>
+<section>
+
+<h2>All Presentations</h2>
+<p><a href="https://kccncna17.sched.com/?mobileoff=Y">Schedule</a></p>
+
+</section>
+<section>
+
+<h2>Hacking Kubernetes</h2>
+<p>A pentester demonstrates how many default settings lead to RCE, Leaked Source Code, and compromised AWS accounts<br>
+<a href="goo.gl/TNRxtd">Slides</a><br>
+<a href="goo.gl/fwwbgB">Demo</a></p>
+<ul>
+  <li><a href="https://github.com/bgeesaman/sonobuoy-plugin-bulkhead">sonobuoy plugin benchmark</a></li>
+  <li><a href="https://github.com/aquasecurity/kube-bench">kube-benchmark</a></li>
+</ul>
+
+</section>
+<section>
+
+<h2>Istio Workshop</h2>
+<p>Hello World type setup on kubernetes using Routing Policies and more<br>
+<a href="https://github.com/retroryan/istio-workshop">Workshop</a></p>
+
+</section>
+<section>
+
+<h2>Stupid kubectl tricks</h2>
+<p>Collection of useful but not well documented commands<br>
+<a href="http://bit.ly/stupid-kubectl-tricks">Tricks</a></p>
+
+</section>
+<section>
+
+<h2>101 Ways to Crash a Cluster</h2>
+<p><a href="https://schd.ws/hosted_files/kccncna17/20/KubeCon%20NA%202017-101%20Ways%20to%20Crash%20Your%20Cluster.pdf">Slides</a><br>
+Production lessons from Nordstrom running K8s</p>
+
+</section>
+<section>
+
+<h2>HBO - Pushing the limits with Game of Thrones</h2>
+<p><a href="https://schd.ws/hosted_files/kccncna17/d6/KubeCon_Keynote_HBO.pdf">HBO Keynote</a></p>
+
+</section>
+<section>
+
+<h2>Minikube Developer Workflow and Advanced Tips</h2>
+<p><a href="https://schd.ws/hosted_files/kccncna17/2b/Minikube%20Developer%20Workflow%20and%20Advanced%20Tips%20-%20Final.pdf">Slides</a></p>
+
+</section>
+<section>
+
+<h2>Netflix overview of OAP</h2>
+<p><a href="https://schd.ws/hosted_files/kccncna17/cb/Manish%20Mehta%20Netflix%20AuthZ%20V4.pdf">How Netflix is Solving Authorization Across Their Cloud</a></p>
+
+</section>
+<section>
+
+<h1>Fun Stuff</h1>
+
+</section>
+<section>
+
+<h3>From the mouth of the creator</h3>
+<p>kubectl is pronounced Cube Control!</p>
+
+</section>
+<section>
+
+<h3>An engineer had a k8s cluster running on ARM SmartWatches</h3>
+<ul>
+  <li>Had custom built docker and kubelet on Astroid OS</li>
+  <li>Ran a service to turn the screens from Red to Blue</li>
+</ul>
+
+</section>
+<section>
+
+<p><code>kubectl apply -f &lt;url&gt;</code> is the new <code>sudo curl &lt;url&gt; |bash</code></p>
+
+</section>
+<section>
+
+<p>Kelsey Hightower created an 8 node k8s cluster, deployed an app, and scaled it to 10 pods with Google Voice commands</p>
+
+</section>
