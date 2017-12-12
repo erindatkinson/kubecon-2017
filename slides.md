@@ -187,7 +187,9 @@ Production lessons from Nordstrom running K8s
 ---
 ### From the mouth of the creator
 kubectl is pronounced Cube Control!
+
 Errata: https://twitter.com/thockin/status/740983765787238400
+
 ![Errata](images/twitter.png "Errata")
 ---
 ### An engineer had a k8s cluster running on ARM SmartWatches
