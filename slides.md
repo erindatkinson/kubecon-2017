@@ -10,7 +10,7 @@
 ---
 ## K8S 1.9
 * DaemonSets, Deployments, ReplicaSets, and StatefulSets all promoted to Beta
-* CoreDNS replacing kube-dns 
+* CoreDNS replacing kube-dns
 ---
 ## Releases
 * CoreDNS 1.0
@@ -70,7 +70,28 @@ Doing it right means that kubernetes is hidden to the developers
 * [Slides](https://schd.ws/hosted_files/kccncna17/39/Monolith%20to%20Microservices%20-%20Kubecon%202017.pdf)
 ---
 ## We should be use OpenTracing
-Its the Peanut Butter to the Service Meshe's Chocolate 
+Its the Peanut Butter to the Service Mesh's Chocolate
+---
+## Documentation pipelining
+* Intent is to have development groups take ownership of services as 3rd party APIs
+* need a central hub for cross dissemination of contracts across teams
+  * Swagger is a good reference documentation for many developers.
+  * not all questions can be answered by swagger
+    * long form documentation and api reference being in the same repo as the code pushes documentation best practices.
+  * add documentation deploy as bundled part of service deploy
+    * versioned to deployed service
+---
+## Helm CICD
+* They use Gitlab ci-runners.
+* A lot of caveats on how they use helm charts
+  * for development:
+    * Set max unavailable to 0 on 1 replicacount value
+      * if someone wants to deploy with a replica count of 1
+    * in regard to sane defaults
+      * Flag for clients/splunk/DD logging sidecar.
+        * Have option for custom sidecar
+        * major amounts of code login in templates in helm charts
+      * sane defaults if not flagged, if flag is set in values, then allow for modification.
 ---
 # Tools
 ---
@@ -80,6 +101,7 @@ Its the Peanut Butter to the Service Meshe's Chocolate
 * Pluggable for I,O,R
 * SLO of <1ms per evaluation
 * 20us benchmarked using 2000 roles in 2000 bindings on a single i7 core
+* Allows for terraform testing
 ---
 [kube-metacontroler](https://github.com/GoogleCloudPlatform/kube-metacontroller)
 * Prototype tool for implementing custom controlers
@@ -114,6 +136,19 @@ Its the Peanut Butter to the Service Meshe's Chocolate
 ---
 [CoreOS Clair](https://github.com/coreos/clair)
 * Image static analysis and vulnerability scanner
+---
+[Grafeas](https://github.com/Grafeas/Grafeas)
+* Metadata for K8s components API
+---
+[Manifesto](https://github.com/aquasecurity/manifesto)
+* Container image metadata storage and management interface.
+---
+[istio-vet](https://github.com/aspenmesh/istio-vet)
+* Istio and user application validation.
+---
+[Metaparticle](https://github.com/metaparticle-io)
+* Cloud native standard library for Containers and Kubernetes
+* Keynote will be up: [detail](https://kccncna17.sched.com/event/CUCZ/keynote-kubernetes-this-job-is-too-hard-building-new-tools-patterns-and-paradigms-to-democratize-distributed-system-development-brendan-burns-distinguished-engineer-microsoft)
 ---
 # Good Links and Presentations
 ---
@@ -152,10 +187,18 @@ Production lessons from Nordstrom running K8s
 ---
 ### From the mouth of the creator
 kubectl is pronounced Cube Control!
+Errata: https://twitter.com/thockin/status/740983765787238400
+![Errata](images/twitter.png "Errata")
 ---
 ### An engineer had a k8s cluster running on ARM SmartWatches
 * Had custom built docker and kubelet on Astroid OS
 * Ran a service to turn the screens from Red to Blue
+---
+## Cluster management API
+* Builders of Kubicorn
+* Aggregated API server
+  * API server is becoming a standard for adding api functionality
+* API integration to kops, kubicorn, and a couple other tools to wrap functionality into single interface.
 ---
 `kubectl apply -f <url>` is the new `sudo curl <url> |bash`
 ---
