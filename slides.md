@@ -190,7 +190,7 @@ kubectl is pronounced Cube Control!
 
 Errata: https://twitter.com/thockin/status/740983765787238400
 
-![Errata](images/twitter.png "Errata")
+![Errata](images/twitter.png)
 ---
 ### An engineer had a k8s cluster running on ARM SmartWatches
 * Had custom built docker and kubelet on Astroid OS
@@ -202,6 +202,7 @@ Errata: https://twitter.com/thockin/status/740983765787238400
   * API server is becoming a standard for adding api functionality
 * API integration to kops, kubicorn, and a couple other tools to wrap functionality into single interface.
 ---
+# Code!
 `kubectl apply -f <url>` is the new `sudo curl <url> |bash`
 ---
 Kelsey Hightower created an 8 node k8s cluster, deployed an app, and scaled it to 10 pods with Google Voice commands
